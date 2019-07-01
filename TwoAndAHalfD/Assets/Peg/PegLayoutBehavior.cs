@@ -5,7 +5,7 @@ using UnityEngine;
 public class PegLayoutBehavior : MonoBehaviour
 {
     
-    const float pegsWide = 20;
+    const float pegsWide = 30;
     const float pegsTall = 20;
     void Start()
     {
@@ -25,10 +25,10 @@ public class PegLayoutBehavior : MonoBehaviour
     private static void CalculateNewPegPosition(int i, int j, GameObject newPeg)
     {
         var xOffset = 0f;
-        if (j % 2 == 0) {
+        if (j % 3 == 0) {
             xOffset = 0.5f;
         }
-        var x = newPeg.transform.position.x + i / 3.0f + 0.01f + xOffset;
+        var x = newPeg.transform.position.x + i / 3.0f + xOffset;
         var y = newPeg.transform.position.y - j / 2.0f;
 
         var newPegPosition = new Vector3(x, y, newPeg.transform.position.z);
