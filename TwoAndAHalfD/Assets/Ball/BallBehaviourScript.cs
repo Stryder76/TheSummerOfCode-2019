@@ -13,11 +13,18 @@ public class BallBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        ScoreBehavior.score++;
+
+        if (collision.collider.name == "Peg(Clone)")
+        {
+            ScoreBehavior.score++;
+        }
+
+        
+       
     }
 }
