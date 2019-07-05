@@ -6,7 +6,7 @@ public class PegLayoutBehavior : MonoBehaviour
 {
     
     const float pegsWide = 20;
-    const float pegsTall = 20;
+    const float pegsTall = 8;
     void Start()
     {
         var pegToCopy = GameObject.Find("Peg");
