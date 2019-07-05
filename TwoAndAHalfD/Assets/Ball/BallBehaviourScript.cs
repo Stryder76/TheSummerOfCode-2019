@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BallBehaviourScript : MonoBehaviour
 {
+    GameObject ball;
+    System.Random random;
+
     // Start is called before the first frame update
     void Start()
     {
-      GameObject ball = GameObject.Find("Ball");
-        var random = new System.Random();
+     ball  = GameObject.Find("Ball");
+       random = new System.Random();
         ball.transform.position = new Vector3(ball.transform.position.x + (float)random.NextDouble() * 6, ball.transform.position.y, ball.transform.position.z);
     }
 
@@ -56,6 +59,8 @@ public class BallBehaviourScript : MonoBehaviour
         if (collision.collider.name == "Peg(Clone)")
         {
             ScoreBehavior.score++;
+
+            ball.GetComponent<PhysicMaterial>().bounciness = (float) random.NextDouble();
         }
 
         
