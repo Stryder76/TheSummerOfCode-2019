@@ -96,7 +96,7 @@ public class BallBehaviourScript : MonoBehaviour
             long delta = System.Environment.TickCount - spinnerStart;
             float deltaSeconds = delta / 1000f;
             var initialZVelocity = -3f;
-            var initialYVelocity = 2f;
+            var initialYVelocity = 5f;
             var zPosition = spinnerBallHitStartPosition.z + initialZVelocity * deltaSeconds + 1f * deltaSeconds * deltaSeconds;
             var yPosition = spinnerBallHitStartPosition.y + initialYVelocity*deltaSeconds;
 
