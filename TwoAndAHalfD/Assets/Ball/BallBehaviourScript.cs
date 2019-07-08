@@ -9,13 +9,13 @@ public class BallBehaviourScript : MonoBehaviour
     Vector3 startingBallPosition;
     GameObject floor;
 
-    enum BallState
+    public enum BallState
     {
         Bouncing,
         SpinnerMoving,
     }
 
-    BallState ballState = BallState.Bouncing;
+    static public BallState ballState = BallState.Bouncing;
 
     // Start is called before the first frame update
     void Start()
@@ -67,23 +67,16 @@ public class BallBehaviourScript : MonoBehaviour
         if (collision.collider.name == "Peg(Clone)")
         {
             ScoreBehavior.score++;
+            return;
+            var collider = ball.GetComponent<SphereCollider>();
 
-            ball.GetComponent<PhysicMaterial>().bounciness = (float) random.NextDouble();
+            var physicsMaterial = collider.GetComponent<PhysicMaterial>();
+
+            physicsMaterial.bounciness = (float) random.NextDouble();
         }
-        if (collision.collider.name == "Spinner" 
-            || collision.collider.name == "Spinner2")
-        {
-            ballState = BallState.SpinnerMoving;
-            var ballRigidBody = ball.GetComponent<Rigidbody>();
-            ballRigidBody.useGravity = false;
-            ballRigidBody.constraints = ballRigidBody.constraints & ~RigidbodyConstraints.FreezePositionZ;
-            spinnerStart = System.Environment.TickCount;
-            spinnerBallHitStartPosition = ball.transform.position;
-        }
+        
     }
 
-    long spinnerStart = 0;
-    Vector3 spinnerBallHitStartPosition;
     // Update is called once per frame
     void Update()
     {
@@ -91,26 +84,7 @@ public class BallBehaviourScript : MonoBehaviour
         {
             FixBadBallStartingPosition();
         }
-        else if (ballState == BallState.SpinnerMoving)
-        {
-            long delta = System.Environment.TickCount - spinnerStart;
-            float deltaSeconds = delta / 1000f;
-            var initialZVelocity = -3f;
-            var initialYVelocity = 5f;
-            var zPosition = spinnerBallHitStartPosition.z + initialZVelocity * deltaSeconds + 1f * deltaSeconds * deltaSeconds;
-            var yPosition = spinnerBallHitStartPosition.y + initialYVelocity*deltaSeconds;
-
-            ball.transform.position = new Vector3(ball.transform.position.x, yPosition, zPosition);
-
-            if (ball.transform.position.y >= startingBallPosition.y)
-            {
-                var ballRigidBody = ball.GetComponent<Rigidbody>();
-                ballRigidBody.useGravity = true;
-                ball.transform.position = new Vector3(spinnerBallHitStartPosition.x, ball.transform.position.y, spinnerBallHitStartPosition.z);
-                ballRigidBody.constraints = ballRigidBody.constraints | RigidbodyConstraints.FreezePositionZ;
-                ballState = BallState.Bouncing;
-            }
-        }
+        
     }
 
     private void FixBadBallStartingPosition()

@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Background\BackgroundBehaviourScript.cs" />
     <Compile Include="Assets\Ball\BallBehaviourScript.cs" />
+    <Compile Include="Assets\Ball\SpinnerCollisionBehaviourScript.cs" />
     <Compile Include="Assets\Camera\CameraBehavior.cs" />
     <Compile Include="Assets\Peg\PegLayoutBehavior.cs" />
     <Compile Include="Assets\Score\ScoreBehavior.cs" />
