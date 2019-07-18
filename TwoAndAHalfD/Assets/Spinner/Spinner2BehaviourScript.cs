@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinnerBehaviourScript : MonoBehaviour
+public class Spinner2BehaviourScript : MonoBehaviour
 {
     GameObject spinner;
     long lastRotationChange;
@@ -10,7 +10,7 @@ public class SpinnerBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spinner = GameObject.Find("Spinner");
+        spinner = GameObject.Find("Spinner2");
         lastRotationChange = System.Environment.TickCount;
     }
 
@@ -21,9 +21,9 @@ public class SpinnerBehaviourScript : MonoBehaviour
         if (delta > 30)
         {
             lastRotationChange = System.Environment.TickCount;
-            spinner.transform.Rotate(new Vector3(0, -(360*delta/1000f)*spinRate, 0));
+            spinner.transform.Rotate(new Vector3(0, -(360 * delta / 1000f) * spinRate, 0));
         }
-        
+
     }
 
 }

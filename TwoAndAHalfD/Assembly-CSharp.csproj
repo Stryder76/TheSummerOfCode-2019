@@ -68,7 +68,9 @@
     <Compile Include="Assets\Camera\CameraBehavior.cs" />
     <Compile Include="Assets\Peg\PegLayoutBehavior.cs" />
     <Compile Include="Assets\Score\ScoreBehavior.cs" />
-    <Compile Include="Assets\Spinner\SpinnerBehaviourScript.cs" />
+    <Compile Include="Assets\Spinner\Spinner1BehaviourScript.cs" />
+    <Compile Include="Assets\Spinner\Spinner2BehaviourScript.cs" />
+    <Compile Include="Assets\Spinner\Spinner3BehaviourScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

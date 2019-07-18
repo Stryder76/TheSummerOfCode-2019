@@ -23,8 +23,10 @@ public class SpinnerCollisionBehaviourScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.collider.name == "Spinner"
-            || collision.collider.name == "Spinner2")
+        if (collision.collider.name == "Spinner1"
+            || collision.collider.name == "Spinner2"
+            || collision.collider.name == "Spinner3")
+
         {
            BallBehaviourScript.ballState = BallBehaviourScript.BallState.SpinnerMoving;
             var ballRigidBody = ball.GetComponent<Rigidbody>();
