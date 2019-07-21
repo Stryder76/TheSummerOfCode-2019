@@ -19,7 +19,7 @@ public class BackgroundBehaviourScript : MonoBehaviour
     void Update()
     {
         long delta = System.Environment.TickCount - lastcolorticks;
-        if (delta > 500)
+        if (delta > 1500)
         {
             lastcolorticks = System.Environment.TickCount;
             backround.GetComponent<Renderer>().sharedMaterial.color = new Color((float)random.NextDouble(),(float)random.NextDouble(), (float)random.NextDouble());
